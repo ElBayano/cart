@@ -2,7 +2,7 @@ import React from "react";
 import {HeaderStyle} from "./header.style"
 function Header() {
     return(
-        <HeaderStyle>Ok</HeaderStyle>
+        <HeaderStyle>Carrinho de compras</HeaderStyle>
     )
 
 }

@@ -34,7 +34,7 @@ export const CardProductStyle = styled.div`
     
     img {
         margin-top: 1rem;
-        width: 12rem;
+        height: 14rem;
     }
     
 `

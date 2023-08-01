@@ -6,7 +6,7 @@ function IndexPage() {
     
     const [product, setProduct] = useState([])
 
-    const DownloadProduct = () => { api.get('products?limit=5').then(res => setProduct(res.data)) }
+    const DownloadProduct = () => { api.get('products?limit=10').then(res => setProduct(res.data)) }
 
     useEffect(() => {
         DownloadProduct()

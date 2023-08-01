@@ -3,10 +3,12 @@ import styled from 'styled-components'
 export const CardProductStyle = styled.div`
     width: 15rem;
     background-color: white;
-    border-radius: 0 0 30px 30px;
+    border-radius: 1.5rem;
     margin: 0.5rem;
     padding-bottom: 1rem;
     height: 450px;
+    box-shadow: 1px 2px 10px -4px black;
+    
 
     > ul {
         padding: 0.8rem;
@@ -16,7 +18,9 @@ export const CardProductStyle = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
+        height: 100%;
+
         
 
         li {
@@ -30,14 +34,17 @@ export const CardProductStyle = styled.div`
         button {
             width: 7rem;
             padding: 0.5rem;
-            border-radius: 8px;
+            border-radius: 3px;
             cursor: pointer;
-            border: 1px solid black;
-            transition: all .1s; 
-            box-shadow: 1px 2px 10px -5px black;
+            border: none;
+            transition: all .05s; 
+            background-color: #4CAF50;
+            color: #fff;
+            font-weight: 600;
+            font-family: "Inter", sans-serif;
 
-            &:active{
-                background-color: red;
+            &:active, &:hover{
+                background-color: #43A047;
             }
         }
         

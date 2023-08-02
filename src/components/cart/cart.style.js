@@ -7,7 +7,8 @@ export const CartStyle = styled.div`
     top: 0;
     height: 100vh;
     width: 25rem;
-    padding: 1.5rem;
-
-    text-align: right;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `

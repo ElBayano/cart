@@ -3,10 +3,10 @@ import { CartContentSyle } from "./cartContent.style";
 import CartCard from "./cartCard/cartCard";
 
 
-function CartContent({}) {
+function CartContent(props) {
     return(
         <CartContentSyle >
-            <CartCard/>
+            <CartCard props={props}/>
         </CartContentSyle>
     )
 }

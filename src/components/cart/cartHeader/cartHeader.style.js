@@ -5,6 +5,7 @@ export const CartHeaderStyle = styled.div`
     display: flex;
     gap: 2rem;
     justify-content: flex-end;
+    align-self: flex-end;
 `
 
 export const CartCloseButtonStyle = styled.button`

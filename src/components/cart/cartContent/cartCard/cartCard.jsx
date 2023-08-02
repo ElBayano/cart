@@ -1,25 +1,31 @@
 import React from "react";
-import { CartCardStyle, ProductTitleStyle, SideStyle, ProductControlerConteinerStyle, ProductControlerStyle, ProductPriceStyle } from "./cartCard.style";
+import { CartCardStyle, ProductTitleStyle, SideStyle, ProductControlerConteinerStyle, ProductControlerStyle, ProductPriceStyle , ButtonControler, QuantityDisplay } from "./cartCard.style";
 
-function CartCard() {
+function CartCard({props}) {
+    
+    const {image , title, quantity, price, cartList, setCartList} = props
+    const increaseQuantity = ()=> { return console.log([...cartList])}
     return(
         <CartCardStyle>
-            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"/>
-
+            <img src={image} alt=""/>
+            
             <SideStyle>
                 <ProductTitleStyle> 
-                        Nome do produto aqui
+                        {title} 
                 </ProductTitleStyle>
 
                 <ProductControlerConteinerStyle>
 
                     <ProductPriceStyle>
-                        R$ 1990.00
+                        R$ {price * quantity}
                     </ProductPriceStyle>
 
-                    <ProductControlerStyle>
-                        - 2 +
+                    <ProductControlerStyle>                        
+                        <ButtonControler>-</ButtonControler>
+                        <QuantityDisplay defaultValue={quantity}/>
+                        <ButtonControler onClick={increaseQuantity}>+</ButtonControler>
                     </ProductControlerStyle>
+                    
                 </ProductControlerConteinerStyle>
             </SideStyle>
         </CartCardStyle>

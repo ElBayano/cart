@@ -1,10 +1,12 @@
 import React from "react";
-import {CartHeaderStyle} from './cartHeader.style.js'
+import {CartHeaderStyle, CartCloseButtonStyle} from './cartHeader.style.js'
 
 function CartHeader({children}) {
+    const closeCart = () => {console.log("fechar")}
     return(
         <CartHeaderStyle>
             {children}
+            <CartCloseButtonStyle onClick={closeCart}>X</CartCloseButtonStyle>
         </CartHeaderStyle>
     )
 }

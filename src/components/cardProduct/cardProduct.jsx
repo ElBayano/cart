@@ -1,6 +1,5 @@
 import React from "react";
 import { CardProductStyle } from "./cardProduct.style";
-import image from '/bag.jpg'
 
 function CardProduct({img, name, price}) {
 

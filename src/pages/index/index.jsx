@@ -1,6 +1,7 @@
 import CardProduct from "../../components/cardProduct/cardProduct";
 import { api } from "../../api/api";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
+import Cart from "../../components/cart/cart"
 
 function IndexPage() {
     
@@ -21,6 +22,7 @@ function IndexPage() {
 
     return(
         <>
+            <Cart/>
             <select onChange={newLimit} >
                 <option value="4" >4</option>
                 <option value="6" >6</option>

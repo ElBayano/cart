@@ -1,35 +1,46 @@
-import React from "react";
-import { CartCardStyle, ProductTitleStyle, SideStyle, ProductControlerConteinerStyle, ProductControlerStyle, ProductPriceStyle , ButtonControler, QuantityDisplay } from "./cartCard.style";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  CartCardStyle,
+  ProductTitleStyle,
+  SideStyle,
+  ProductControlerConteinerStyle,
+  ProductControlerStyle,
+  ProductPriceStyle,
+  ButtonControler,
+  QuantityDisplay,
+} from "./cartCard.style";
 
-function CartCard({props}) {
-    
-    const {image , title, quantity, price, cartList, setCartList} = props
-    const increaseQuantity = ()=> { return console.log([...cartList])}
-    return(
-        <CartCardStyle>
-            <img src={image} alt=""/>
-            
-            <SideStyle>
-                <ProductTitleStyle> 
-                        {title} 
-                </ProductTitleStyle>
+import { utils } from "./utils";
 
-                <ProductControlerConteinerStyle>
+import { useCart } from "../../../../context/cartContext";
 
-                    <ProductPriceStyle>
-                        R$ {price * quantity}
-                    </ProductPriceStyle>
+function CartCard({image, price, title, id }) {
+  const {cartList} = useCart()
 
-                    <ProductControlerStyle>                        
-                        <ButtonControler>-</ButtonControler>
-                        <QuantityDisplay defaultValue={quantity}/>
-                        <ButtonControler onClick={increaseQuantity}>+</ButtonControler>
-                    </ProductControlerStyle>
-                    
-                </ProductControlerConteinerStyle>
-            </SideStyle>
-        </CartCardStyle>
-    )
+  const increaseQuantity = () => {};
+
+
+  const decreaseQuantity = () => {};
+
+  return (
+    <CartCardStyle>
+      <img src={image} alt="" />
+
+      <SideStyle>
+        <ProductTitleStyle>{title}</ProductTitleStyle>
+
+        <ProductControlerConteinerStyle>
+          <ProductPriceStyle>R$ </ProductPriceStyle>
+
+          <ProductControlerStyle>
+            <ButtonControler onClick={decreaseQuantity}>-</ButtonControler>
+            <QuantityDisplay />
+            <ButtonControler onClick={increaseQuantity}>+</ButtonControler>
+          </ProductControlerStyle>
+        </ProductControlerConteinerStyle>
+      </SideStyle>
+    </CartCardStyle>
+  );
 }
 
-export default CartCard
+export default CartCard;

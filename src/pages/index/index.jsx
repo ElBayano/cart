@@ -10,9 +10,8 @@ function IndexPage() {
     const DownloadProduct = () => { api.get(`products?limit=${productLimit}`).then(res => setProduct(res.data)) }
     const newLimit = (event) => {setProdutctLimit(event.target.value)}
 
-    useEffect(() => {DownloadProduct()}, [])
-
     useEffect(() => {DownloadProduct()}, [productLimit])
+
 
   
 

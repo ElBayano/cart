@@ -4,4 +4,8 @@ export const CartContentSyle = styled.div`
     width: 90%;
     height: 100%;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
 `

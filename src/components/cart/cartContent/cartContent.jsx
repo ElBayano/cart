@@ -9,7 +9,7 @@ function CartContent() {
     const {cartList} = useCart()
 
     function renderCartList() {
-      return  cartList.map((item, index)=>{return <CartCard key={index} item={{item}} />})
+      return  cartList.map((item, index)=>{return <CartCard key={index} item={item}  index={index}/>})
     }
     return(
         <CartContentSyle >

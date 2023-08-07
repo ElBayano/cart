@@ -11,15 +11,17 @@ export const CartProvider = ({children}) => {
           image:
             "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
           price: 19,
-          title: "Mens Casual"
+          title: "Mens Casual",
+          quantity: 1
         },
 
         {
           id: 2,
           image:
-            "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+          "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
           price: 19,
-          title: "Mens Casual"
+          title: "Mens Casual",
+          quantity: 1
         }
 
       ]
@@ -34,8 +36,31 @@ export const CartProvider = ({children}) => {
         setCartList(newCartList.splice(index,1))
       }
 
+      const decreaseQuantity = (item, index) => {
+        const newInfoProduct = {...item, quantity: item.quantity - 1}
+        const newProductList = cartList
+        newProductList.splice(index, 1, newInfoProduct)
+        setCartList(newProductList)
+        console.log(newInfoProduct)
+
+        return(newInfoProduct.quantity)
+      }
+
+      const increaseQuantity = (item, index) => {
+        const newQuantity = item.quantity + 1
+        const newProduct = {...item, quantity: newQuantity}
+        let newList = cartList
+
+        newList.splice(index, 1, newProduct)
+        setCartList(newList)
+        console.log(newList[index].quantity)
+        return(newList[index].quantity)
+
+       }
+
+
       return (
-        <CartContext.Provider value={{cartList, removeProduct, addToCart}}>
+        <CartContext.Provider value={{cartList, removeProduct, addToCart, increaseQuantity, decreaseQuantity}}>
             {children}
         </CartContext.Provider>
       )

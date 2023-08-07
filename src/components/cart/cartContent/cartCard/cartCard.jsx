@@ -13,12 +13,20 @@ import {
 import { useCart } from "../../../../context/cartContext";
 
 function CartCard({item, index}) {
-  const {cartList, addToCart, increaseQuantity, decreaseQuantity} = useCart()
+  const {cartList, addToCart, changeQuantity} = useCart()
   
   const [productQuantity, setProductQuantity] = useState(1)
 
-  // const increaseQuantity = () => {
-  //   addToCart({...item, quantity: item.quantity++})};
+  const increaseQuantity = () => {
+    console.log("ok")
+    setProductQuantity(productQuantity+1)
+    changeQuantity(item, index, productQuantity)
+  }
+  const decreaseQuantity = () => {
+    console.log("ok")
+    setProductQuantity(productQuantity-1)
+    changeQuantity(item, index, productQuantity)
+  }
 
 
   return (
@@ -29,14 +37,14 @@ function CartCard({item, index}) {
         <ProductTitleStyle>{item.title}</ProductTitleStyle>
 
         <ProductControlerConteinerStyle>
-          <ProductPriceStyle>R$ </ProductPriceStyle>
+          <ProductPriceStyle>R$ {item.price * productQuantity}</ProductPriceStyle>
 
           <ProductControlerStyle>
-            <ButtonControler onClick={() => {setProductQuantity(decreaseQuantity)}}>-</ButtonControler>
+            <ButtonControler onClick={decreaseQuantity}>-</ButtonControler>
 
             <QuantityDisplay value={productQuantity}/>
 
-            <ButtonControler onClick={() => {increaseQuantity(item, index); setProductQuantity(item.quantity)}}>+</ButtonControler>
+            <ButtonControler onClick={increaseQuantity}>+</ButtonControler>
             
           </ProductControlerStyle>
         </ProductControlerConteinerStyle>

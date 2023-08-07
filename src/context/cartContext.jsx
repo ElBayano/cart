@@ -36,31 +36,17 @@ export const CartProvider = ({children}) => {
         setCartList(newCartList.splice(index,1))
       }
 
-      const decreaseQuantity = (item, index) => {
-        const newInfoProduct = {...item, quantity: item.quantity - 1}
-        const newProductList = cartList
-        newProductList.splice(index, 1, newInfoProduct)
-        setCartList(newProductList)
-        console.log(newInfoProduct)
-
-        return(newInfoProduct.quantity)
-      }
-
-      const increaseQuantity = (item, index) => {
-        const newQuantity = item.quantity + 1
-        const newProduct = {...item, quantity: newQuantity}
-        let newList = cartList
-
-        newList.splice(index, 1, newProduct)
+      const changeQuantity = (item, index, quantity) => {
+        const newItem = {...item, quantity: quantity}
+        const newList = cartList
+        quantity >1 ? newList.splice(index,1, newItem):  newList.splice(index, 1)
+        console.log(newList)
         setCartList(newList)
-        console.log(newList[index].quantity)
-        return(newList[index].quantity)
-
-       }
+      }
 
 
       return (
-        <CartContext.Provider value={{cartList, removeProduct, addToCart, increaseQuantity, decreaseQuantity}}>
+        <CartContext.Provider value={{cartList, removeProduct, addToCart, changeQuantity}}>
             {children}
         </CartContext.Provider>
       )

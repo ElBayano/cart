@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const CardProductStyle = styled.div`
-    width: 15rem;
+    width: 12rem;
     background-color: white;
     border-radius: 1.5rem;
     margin: 0.5rem;
     padding-bottom: 1rem;
-    height: 450px;
+    height: 20rem;
     box-shadow: 1px 2px 10px -4px black;
     
 
@@ -28,7 +28,7 @@ export const CardProductStyle = styled.div`
         }
 
         > li h3 {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
         button {
@@ -52,8 +52,8 @@ export const CardProductStyle = styled.div`
     
     img {
         margin-top: 1rem;
-        height: 14rem;
-        max-width: 13.1rem;
+        height: 7rem;
+        max-width: 8rem;
     }
     
 `

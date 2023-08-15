@@ -12,15 +12,18 @@ import {
 
 import { useCart } from "../../../../context/cartContext";
 
-function CartCard({item, index}) {
+function CartCard({item, index, setList}) {
   const {cartList, addToCart, changeQuantity} = useCart()
   
-  const [productQuantity, setProductQuantity] = useState(1)
+  const [productQuantity, setProductQuantity] = useState(cartList[index].quantity)
 
   const increaseQuantity = () => {
-    console.log("ok")
-    setProductQuantity(productQuantity+1)
+    setProductQuantity((previus)=> previus+1)
     changeQuantity(item, index, productQuantity)
+    console.log(productQuantity)
+    console.log(item)
+    console.log(index)
+    setList(cartList)
   }
   const decreaseQuantity = () => {
     console.log("ok")

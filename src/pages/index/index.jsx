@@ -26,9 +26,10 @@ function IndexPage() {
             </select>
             {products.map(item => <CardProduct 
                         key={item.id}
-                        name={item.title}
+                        id={item.id}
+                        title={item.title}
                         price={item.price}
-                        img={item.image} />)}
+                        image={item.image} />)}
         </>)
 }
 

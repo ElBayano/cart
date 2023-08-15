@@ -5,11 +5,11 @@ import CartCard from "./cartCard/cartCard";
 import { useCart } from "../../../context/cartContext";
 
 function CartContent() {
-
     const {cartList} = useCart()
+    console.log("CartContext Atualizado com sucesso")
     
     function renderCartList() {
-      return  cartList.map((item, index)=>{return <CartCard key={index} item={item}  index={index}/>})
+      return  cartList.map((item, index)=>{return <CartCard key={index} item={item}  index={index} />})
     }
     return(
         <CartContentSyle >

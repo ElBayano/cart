@@ -12,7 +12,7 @@ export const CartProvider = ({children}) => {
             "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
           price: 19,
           title: "Mens Casual",
-          quantity: 1
+          quantity: 10
         },
 
         {
@@ -21,7 +21,7 @@ export const CartProvider = ({children}) => {
           "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
           price: 19,
           title: "Mens Casual",
-          quantity: 1
+          quantity: 2
         }
 
       ]
@@ -38,7 +38,7 @@ export const CartProvider = ({children}) => {
 
       const changeQuantity = (item, index, quantity) => {
         const newItem = {...item, quantity: quantity}
-        const newList = cartList
+        let newList = cartList
         quantity >1 ? newList.splice(index,1, newItem):  newList.splice(index, 1)
         console.log(newList)
         setCartList(newList)

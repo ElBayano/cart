@@ -7,13 +7,14 @@ import { useCart } from "../../../context/cartContext";
 function CartContent() {
     const {cartList} = useCart()
     console.log("CartContext Atualizado com sucesso")
-    
-    function renderCartList() {
-      return  cartList.map((item, index)=>{return <CartCard key={index} item={item}  index={index} />})
-    }
+
+
+    console.log(cartList)
+
     return(
         <CartContentSyle >
-            {renderCartList()}
+            {cartList.length}
+            {cartList.map((item, index)=>{return <CartCard key={index} item={item}  index={index} />})}
         </CartContentSyle>
     )
 }

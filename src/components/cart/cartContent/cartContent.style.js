@@ -8,4 +8,8 @@ export const CartContentSyle = styled.div`
     flex-direction: column;
     gap: 2rem;
     
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+  display: none;
+}    
 `

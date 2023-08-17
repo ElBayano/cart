@@ -12,23 +12,19 @@ import {
 
 import { useCart } from "../../../../context/cartContext";
 
-function CartCard({item, index, setList}) {
-  const {cartList, addToCart, changeQuantity} = useCart()
-  
-  const [productQuantity, setProductQuantity] = useState(cartList[index].quantity)
+function CartCard({item, index}) {
+  const {cartList, addToCart, changeQuantity, removeProduct} = useCart()
 
-  const increaseQuantity = () => {
-    setProductQuantity((previus)=> previus+1)
-    changeQuantity(item, index, productQuantity)
-    console.log(productQuantity)
-    console.log(item)
-    console.log(index)
-    setList(cartList)
+  const Increase = ()=> {
+    const itemQuantity = cartList[index].quantity + 1
+    console.log("CartCard Quantity", itemQuantity)
+    changeQuantity(cartList[index], index, itemQuantity )
   }
-  const decreaseQuantity = () => {
-    console.log("ok")
-    setProductQuantity(productQuantity-1)
-    changeQuantity(item, index, productQuantity)
+
+  const Decrease = ()=> {
+    const itemQuantity = cartList[index].quantity - 1
+    console.log("CartCard Quantity", itemQuantity)
+    changeQuantity(cartList[index], index, itemQuantity )
   }
 
 
@@ -40,14 +36,14 @@ function CartCard({item, index, setList}) {
         <ProductTitleStyle>{item.title}</ProductTitleStyle>
 
         <ProductControlerConteinerStyle>
-          <ProductPriceStyle>R$ {item.price * productQuantity}</ProductPriceStyle>
+          <ProductPriceStyle>R$ {item.price * item.quantity}</ProductPriceStyle>
 
           <ProductControlerStyle>
-            <ButtonControler onClick={decreaseQuantity}>-</ButtonControler>
+            <ButtonControler onClick={Decrease}>-</ButtonControler>
 
-            <QuantityDisplay value={productQuantity}/>
+            <QuantityDisplay type="text" value={cartList[index].quantity} onChange={()=>{console.log("Change", cartList[index])}}/>
 
-            <ButtonControler onClick={increaseQuantity}>+</ButtonControler>
+            <ButtonControler onClick={Increase}>+</ButtonControler>
             
           </ProductControlerStyle>
         </ProductControlerConteinerStyle>

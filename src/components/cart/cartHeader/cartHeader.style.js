@@ -6,6 +6,11 @@ export const CartHeaderStyle = styled.div`
     gap: 2rem;
     justify-content: flex-end;
     align-self: flex-end;
+    border-bottom: 1px solid rgba(80,80,80,0.8);
+    display: flex;
+    align-items: center;
+    padding: 0.4rem;
+    width: 100%;
 `
 
 export const CartCloseButtonStyle = styled.button`

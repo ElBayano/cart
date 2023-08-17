@@ -5,42 +5,25 @@ export const CartContext = createContext([])
 
 export const CartProvider = ({children}) => {
     
-    const [cartList, setCartList] = useState([
-        {
-          id: 4,
-          image:
-            "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-          price: 19,
-          title: "Mens Casual",
-          quantity: 10
-        },
-
-        {
-          id: 2,
-          image:
-          "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-          price: 19,
-          title: "Mens Casual",
-          quantity: 2
-        }
-
-      ]
-      )
+    const [cartList, setCartList] = useState([])
 
       const addToCart = (product) => {
+        let item = cartList.filter((item)=>{item.id})
+        console.log(item)
         setCartList([...cartList, product])
       }
 
       const removeProduct = (index) => {
         const newCartList = [...cartList]
-        setCartList(newCartList.splice(index,1))
+        setCartList(newCartList.filter((item, i) => index != i))
+        console.log("removeProduct")
       }
 
       const changeQuantity = (item, index, quantity) => {
         const newItem = {...item, quantity: quantity}
         let newList = cartList
-        quantity >1 ? newList.splice(index,1, newItem):  newList.splice(index, 1)
-        console.log(newList)
+        quantity >= 1 ? newList.splice(index,1, newItem):  newList.splice(index, 1)
+        console.log(cartList)
         setCartList(newList)
       }
 

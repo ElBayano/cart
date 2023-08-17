@@ -4,9 +4,9 @@ import { useCart } from "../../context/cartContext";
 
 function CardProduct({image, title, price, id}) {
     const {addToCart} = useCart()
+    const Click= ()=>addToCart(product)
 
     
-    function Click(image, title, price) {addToCart({product})}
     let product = {id: id, image: image, price: price, title: title, quantity: 1}
     return(
         <CardProductStyle>
